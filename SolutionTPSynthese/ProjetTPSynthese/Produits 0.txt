@@ -1,0 +1,3 @@
+# Ce fichier ne contient aucun produit valide
+
+abc;  ;  ;x;x;x;x

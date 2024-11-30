@@ -1,0 +1,50 @@
+# La ligne suivante est la seule ligne valide du fichier
+5937;Fruits;Banane;0;kg;non;196
+
+#
+# Les lignes suivantes contiennent toutes des erreurs
+#
+
+  # Numéro déjà utilisé
+    5937;XXX;XXX;1;ml;non;1
+
+  # Mauvais nombre de valeurs
+    1234;XXX;XXX;1;ml;non
+    1234;XXX;XXX;1;ml;non;1;x
+
+  # Mauvais numéro
+    abc;XXX;XXX;1;ml;non;1
+    12  x;XXX;XXX;1;ml;non;1
+    -12;XXX;XXX;1;ml;non;1
+    ;XXX;XXX;1;ml;non;1
+
+  # Catégorie vide
+    1234;   ;XXX;1;ml;non;1
+
+  # Description vide
+    1234;XXX;   ;1;ml;non;1
+
+  # Mauvaise quantité
+    1234;XXX;XXX;x;ml;non;1
+    1234;XXX;XXX;1x;ml;non;1
+    1234;XXX;XXX;-1;ml;non;1
+    1234;XXX;XXX;;ml;non;1
+
+  # Mauvaise unité
+    1234;XXX;XXX;1;x;non;1
+    1234;XXX;XXX;1;g x;non;1
+    1234;XXX;XXX;1;;non;1
+    1234;XXX;XXX;0;ml;non;1
+    1234;XXX;XXX;1;kg;non;1
+
+  # Mauvaise taxe
+    1234;XXX;XXX;1;g;x;1
+    1234;XXX;XXX;1;g;non  x;1
+    1234;XXX;XXX;1;g;;1
+
+  # Mauvais prix
+    1234;XXX;XXX;1;g;non;qw
+    1234;XXX;XXX;1;g;non ;12 x
+    1234;XXX;XXX;1;g;non;0
+    1234;XXX;XXX;1;g;non;-1
+    1234;XXX;XXX;1;g;non;

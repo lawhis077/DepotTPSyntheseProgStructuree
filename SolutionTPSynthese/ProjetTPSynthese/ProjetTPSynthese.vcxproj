@@ -127,10 +127,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Horloge.cpp" />
+    <ClCompile Include="Affichage.cpp" />
+    <ClCompile Include="MainSynthese.cpp" />
+    <ClCompile Include="Utilitaire.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Horloge.h" />
+    <ClInclude Include="Affichage.h" />
+    <ClInclude Include="StructureFichiers.h" />
+    <ClInclude Include="Utilitaire.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

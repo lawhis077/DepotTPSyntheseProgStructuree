@@ -1,0 +1,229 @@
+# -------------------------------------------------------
+# Liste des produits vendus par le marché d'alimentation
+# -------------------------------------------------------
+
+# Chaque ligne représente un produit, qui est composé des éléments suivants, séparés par des points-virgules:
+  # - Le code qui identifie le produit. Doit être un entier positif (>= 0). Chaque numéro doit être unique.
+  # - La catégorie à laquelle appartient le produit. Doit être une chaine de caractère non vide, et qui ne contient pas que des espaces.
+  #   Les espaces au début et à la fin doivent être ignorées.
+  # - La description du produit. Doit être une chaine de caractère non vide, et qui ne contient pas que des espaces.
+  #   Les espaces au début et à la fin doivent être ignorées.
+  # - La quantité de produit contenu dans un emballage, une bouteille, un sac, un pot, etc. Doit être un entier positif (>= 0)
+  #   Une quantité de zéro indique le que produit est vendu au poids. Valide uniquement si l'unité est 'kg'.
+  # - Les unités utilisées pour mesurer la quantité du produit.
+  #   Peut être:
+      # - g (gramme)
+      # - ml (millilitre)
+      # - un (unité, nombre entier de produits)
+      # - kg (kilogramme): Indique le que produit est vendu au poids. Valide uniquement si la quantité est zéro.
+  # - Si le produit est taxable. Doit être 'oui' ou 'non'.
+  # - Le prix du produit, en cents. 100 représente donc 1$. Doit être un entier strictement positif (> 0)
+    
+# ==============================================================================================================    
+
+ 5937 ;  Fruits et légumes ;  Banane ;                                      0 ;  kg ;  non ;   196
+ 4667 ;  Fruits et légumes ;  Concombre anglais ;                           1 ;  un ;  non ;   299
+ 4589 ;  Fruits et légumes ;  Framboises ;                                170 ;   g ;  non ;   499
+ 9331 ;  Fruits et légumes ;  Tomate rouge de serre ;                       0 ;  kg ;  non ;  1100
+ 5125 ;  Fruits et légumes ;  Champignons blancs entiers biologiques ;    227 ;   g ;  non ;   250
+ 1372 ;  Fruits et légumes ;  Raisins rouges sans pépins ;                  0 ;  kg ;  non ;  1100
+ 6885 ;  Fruits et légumes ;  Pomme McIntosh ;                              0 ;  kg ;  non ;   615
+ 3587 ;  Fruits et légumes ;  Mûres ;                                     170 ;   g ;  non ;   399
+ 1073 ;  Fruits et légumes ;  Kiwi ;                                        1 ;  un ;  non ;   149
+ 1333 ;  Fruits et légumes ;  Patate douce ;                                0 ;  kg ;  non ;   439
+ 8491 ;  Fruits et légumes ;  Salade de fruits ;                          675 ;   g ;  oui ;   599
+ 8131 ;  Fruits et légumes ;  Pomme de terre rouge ;                        0 ;  kg ;  non ;   439
+ 6642 ;  Fruits et légumes ;  Mangue ;                                      1 ;  un ;  non ;   299
+ 9463 ;  Fruits et légumes ;  Brocoli ;                                     1 ;  un ;  non ;   499
+ 8375 ;  Fruits et légumes ;  Chou-fleur ;                                  1 ;  un ;  non ;   499
+ 2310 ;  Fruits et légumes ;  Fraises ;                                   454 ;   g ;  non ;   699
+ 7668 ;  Fruits et légumes ;  Oignon rouge ;                                0 ;  kg ;  non ;   659
+  320 ;  Fruits et légumes ;  Pomme Honeycrisp ;                            0 ;  kg ;  non ;   880
+ 5520 ;  Fruits et légumes ;  Citron ;                                      1 ;  un ;  non ;   125
+ 9779 ;  Fruits et légumes ;  Grosse orange navel ;                         1 ;  un ;  non ;   199
+ 2612 ;  Fruits et légumes ;  Poire Bartlett ;                              0 ;  kg ;  non ;   659
+ 5822 ;  Fruits et légumes ;  Courgette ;                                   0 ;  kg ;  non ;   659
+ 4348 ;  Fruits et légumes ;  Petites pommes de terre blanches lavées ;  1360 ;   g ;  non ;   300
+ 5320 ;  Fruits et légumes ;  Laitue iceberg ;                              1 ;  un ;  non ;   399
+ 3964 ;  Fruits et légumes ;  Haricots verts ;                              0 ;  kg ;  non ;  1321
+ 9312 ;  Fruits et légumes ;  Melon miel ;                                  1 ;  un ;  non ;   699
+ 3203 ;  Fruits et légumes ;  Salade de carottes et de canneberges ;        0 ;  kg ;  oui ;  2090
+ 1322 ;  Fruits et légumes ;  Aubergine ;                                   0 ;  kg ;  non ;   880
+ 9812 ;  Fruits et légumes ;  Poivron vert ;                                0 ;  kg ;  non ;  1100
+ 2334 ;  Fruits et légumes ;  Abricot ;                                     0 ;  kg ;  non ;  1761
+ 6080 ;  Fruits et légumes ;  Salade de pommes de terre ;                   0 ;  kg ;  oui ;  2190
+ 7685 ;  Fruits et légumes ;  Choux de Bruxelles ;                          0 ;  kg ;  non ;   880
+ 3827 ;  Produits laitiers et oeufs ;  Gros oeufs blancs ;                                    12 ;  un ;  non ;   415
+ 1656 ;  Produits laitiers et oeufs ;  Beurre salé ;                                         454 ;   g ;  non ;   588
+ 1099 ;  Produits laitiers et oeufs ;  Lait 2 %, Finement Filtré ;                          2000 ;  ml ;  non ;   549
+ 9993 ;  Produits laitiers et oeufs ;  Kéfir à saveur de mangue 1 % ;                       1000 ;  ml ;  non ;   699
+  993 ;  Produits laitiers et oeufs ;  Fromage à la crème à tartiner léger en brique ;       250 ;   g ;  non ;   649
+ 9461 ;  Produits laitiers et oeufs ;  Lait sans lactose 3,25 %, PurFiltre ;                2000 ;  ml ;  non ;   669
+ 6818 ;  Produits laitiers et oeufs ;  Fromage parmesan râpé ;                               250 ;   g ;  non ;   849
+ 6782 ;  Produits laitiers et oeufs ;  Fromage brie double crème ;                           125 ;   g ;  non ;   719
+  321 ;  Produits laitiers et oeufs ;  Yogourt grec nature 2 % ;                             908 ;   g ;  non ;   879
+ 7944 ;  Produits laitiers et oeufs ;  Fromage de chèvre aux fines herbes ;                  250 ;   g ;  non ;  1099
+ 8880 ;  Produits laitiers et oeufs ;  Crème à l'ancienne 15 % ;                             473 ;  ml ;  non ;   469
+ 7126 ;  Produits laitiers et oeufs ;  Crème à fouetter 35 % ;                               473 ;  ml ;  non ;   629
+  310 ;  Produits laitiers et oeufs ;  Lait homogénéisé 3,25 %, PurFiltre ;                 4000 ;  ml ;  non ;   999
+ 9541 ;  Produits laitiers et oeufs ;  Fondue au fromage suisse L'Original ;                 400 ;   g ;  non ;  1229
+ 6813 ;  Produits laitiers et oeufs ;  Lait 1 %, PurFiltre ;                                1000 ;  ml ;  non ;   379
+  926 ;  Produits laitiers et oeufs ;  Lait au chocolat 1 % ;                               1000 ;  ml ;  oui ;   399
+  914 ;  Produits laitiers et oeufs ;  Fromage cheddar jaune fort ;                          400 ;   g ;  non ;   829
+ 1315 ;  Produits laitiers et oeufs ;  Oeuf moyen de poules en liberté ;                      24 ;  un ;  non ;   979
+ 1445 ;  Produits laitiers et oeufs ;  Yogourt grec à saveur de cappuccino, Extra crémeux ;  360 ;   g ;  oui ;   529
+ 7796 ;  Produits laitiers et oeufs ;  Oeufs gros ;                                            6 ;  un ;  non ;   319
+ 2867 ;  Boissons ;  Jus de canneberge ;                                   1770 ;  ml ;  non ;   629
+ 8708 ;  Boissons ;  Eau de source naturelle ;                            12000 ;  ml ;  non ;   449
+ 1458 ;  Boissons ;  Thé noir Earl Grey en sachets ;                         50 ;  un ;  non ;  1099
+ 4279 ;  Boissons ;  Café moulu de torréfaction française foncée ;          340 ;   g ;  non ;  1329
+ 6650 ;  Boissons ;  Filtres à café coniques #2 en bambou ;                  80 ;  un ;  oui ;   499
+ 1545 ;  Boissons ;  Boisson aux amandes saveur originale ;                1890 ;  ml ;  non ;   499
+ 4757 ;  Boissons ;  Jus de pomme pétillant ;                               750 ;  ml ;  oui ;   499
+ 2894 ;  Boissons ;  Eau minérale naturelle gazéifiée ;                     750 ;  ml ;  oui ;   329
+ 3798 ;  Boissons ;  Jus d'orange avec un peu de pulpe Homestyle ;         2630 ;  ml ;  non ;   849
+ 5879 ;  Boissons ;  Cocktail aux légumes ;                                1890 ;  ml ;  non ;   579
+ 5302 ;  Boissons ;  Café instantané velouté ;                              200 ;   g ;  non ;   629
+ 7914 ;  Boissons ;  Boisson gazeuse à saveur de citron-lime ;             1000 ;  ml ;  oui ;   219
+ 2529 ;  Boissons ;  Thé orange pekoe ;                                      60 ;  un ;  non ;   549
+ 4853 ;  Boissons ;  Bière de type IPA sans alcool ;                       2130 ;  ml ;  oui ;  1299
+ 5160 ;  Boissons ;  Jus d'ananas ;                                        1650 ;  ml ;  non ;   579
+ 2811 ;  Boissons ;  Breuvage de céréales avec chicorée original ;          150 ;   g ;  non ;   899
+ 3004 ;  Boissons ;  Vin rouge d'Australie, Pinot Noir ;                    750 ;  ml ;  oui ;  1399
+ 3217 ;  Boissons ;  Bière blonde de type Lager ;                           473 ;  ml ;  oui ;   279
+  182 ;  Boissons ;  Boisson énergisante, Sans sucre ;                      473 ;  ml ;  oui ;   425
+ 5375 ;  Boissons ;  Café moulu de torréfaction moyenne, Mélange maison ;   340 ;   g ;  non ;   999
+ 7284 ;  Boissons ;  Boisson pétillante à saveur de cerise et de lime ;     503 ;  ml ;  oui ;   219
+ 2004 ;  Boissons ;  Lait de coco léger ;                                   398 ;  ml ;  non ;   329
+ 9776 ;  Viandes, volailles et poissons ;  Boeuf haché extra-maigre ;                           0 ;  kg ;  non ;  1982
+ 8843 ;  Viandes, volailles et poissons ;  Bifteck de haut de surlonge Boston sans culotte ;    0 ;  kg ;  non ;  3525
+ 6979 ;  Viandes, volailles et poissons ;  Demi-poitrines de poulet sans os et sans peau ;      0 ;  kg ;  non ;  1541
+ 5621 ;  Viandes, volailles et poissons ;  Filet de saumon de l'Atlantique du Canada frais ;    0 ;  kg ;  non ;  3966
+ 6970 ;  Viandes, volailles et poissons ;  Saucisses de poulet au brocoli et au cheddar ;     375 ;   g ;  non ;  1299
+ 9258 ;  Viandes, volailles et poissons ;  Côtelettes de porc, coupe de centre ;                0 ;  kg ;  non ;  1982
+ 9477 ;  Viandes, volailles et poissons ;  Cuisses de canard confites ;                       525 ;   g ;  non ;  2399
+ 9618 ;  Viandes, volailles et poissons ;  Filets de truite arc-en-ciel frais du Canada ;       0 ;  kg ;  non ;  1785
+ 3925 ;  Viandes, volailles et poissons ;  Poulets frais entiers de catégorie A ;               0 ;  kg ;  non ;   880
+ 1001 ;  Viandes, volailles et poissons ;  Gigot d'agneau mi-désossé ;                          0 ;  kg ;  non ;  3084
+ 5613 ;  Viandes, volailles et poissons ;  Tranche de jambon fumé ;                           250 ;   g ;  non ;   699
+ 4864 ;  Viandes, volailles et poissons ;  Bavette de boeuf ;                                   0 ;  kg ;  non ;  6501
+ 3992 ;  Viandes, volailles et poissons ;  Saumon fumé à froid façon artisanale ;               0 ;  kg ;  non ;  6832
+ 5008 ;  Viandes, volailles et poissons ;  Jarrets de porc ;                                    0 ;  kg ;  non ;   990
+ 4368 ;  Viandes, volailles et poissons ;  Brochettes de surlonge de porc souvlaki ;          320 ;   g ;  non ;   899
+ 1571 ;  Viandes, volailles et poissons ;  Filet de tilapia ;                                   0 ;  kg ;  non ;  3305
+ 3076 ;  Viandes, volailles et poissons ;  Terrine de porc et cerf aux canneberges ;          125 ;   g ;  non ;   649
+ 6337 ;  Viandes, volailles et poissons ;  Porc haché maigre ;                                  0 ;  kg ;  non ;  1188
+ 9025 ;  Viandes, volailles et poissons ;  Bacon fumé entièrement cuit ;                       65 ;   g ;  non ;   749
+ 3351 ;  Viandes, volailles et poissons ;  Côtelette de veau de lait désossée ;                 0 ;  kg ;  non ;  4848
+ 3865 ;  Viandes, volailles et poissons ;  Cubes de boeuf à brochettes ;                        0 ;  kg ;  non ;  2754
+  492 ;  Viandes, volailles et poissons ;  Prosciutto fumé ;                                  100 ;   g ;  non ;   749
+ 9107 ;  Viandes, volailles et poissons ;  Filets d'aiglefin frais ;                            0 ;  kg ;  non ;  3194
+ 9992 ;  Boulangerie et pâtisserie ;  Pain blanc ultra moelleux ;                          675 ;   g ;  non ;   449
+ 7084 ;  Boulangerie et pâtisserie ;  Croissants 100 % beurre ;                            570 ;   g ;  non ;   699
+ 2913 ;  Boulangerie et pâtisserie ;  Petits pains à déjeuner aux fruits et aux grains ;   450 ;   g ;  non ;   579
+ 6983 ;  Boulangerie et pâtisserie ;  Mini pains pita ;                                    200 ;   g ;  non ;   399
+ 8721 ;  Boulangerie et pâtisserie ;  Muffins anglais ;                                    684 ;   g ;  non ;   549
+ 9550 ;  Boulangerie et pâtisserie ;  Pain naan tandoori ;                                 397 ;   g ;  non ;   499
+ 4242 ;  Boulangerie et pâtisserie ;  Brioches aux raisins et beurre ;                     360 ;   g ;  oui ;   699
+ 1554 ;  Boulangerie et pâtisserie ;  Pain carré aux grains germés biologique ;            500 ;   g ;  non ;   599
+ 4194 ;  Boulangerie et pâtisserie ;  Baguette française biologique ;                      325 ;   g ;  non ;   469
+ 5687 ;  Boulangerie et pâtisserie ;  Chaussons aux pommes ;                               352 ;   g ;  oui ;   579
+ 8613 ;  Boulangerie et pâtisserie ;  Pains pita ;                                         250 ;   g ;  non ;   249
+ 8896 ;  Boulangerie et pâtisserie ;  Bagels nature ;                                      510 ;   g ;  non ;   449
+ 6163 ;  Boulangerie et pâtisserie ;  Tarte au sucre à la crème ;                          590 ;   g ;  non ;   979
+  740 ;  Boulangerie et pâtisserie ;  Pain brioché au Kamut biologique ;                   550 ;   g ;  non ;   549
+ 5980 ;  Boulangerie et pâtisserie ;  Panettone classique ;                               1000 ;   g ;  non ;  2599
+ 6002 ;  Boulangerie et pâtisserie ;  Gaufres à la vanille ;                               400 ;   g ;  non ;   699
+ 7200 ;  Boulangerie et pâtisserie ;  Mini croissants garnis au Nutella ;                  260 ;   g ;  oui ;   549
+ 3894 ;  Boulangerie et pâtisserie ;  Tortillas de blé entier 7" ;                         340 ;   g ;  non ;   499
+  913 ;  Boulangerie et pâtisserie ;  Miche 100 % blé entier ;                             700 ;   g ;  non ;   549
+ 1195 ;  Boulangerie et pâtisserie ;  Muffins aux pépites et morceaux de chocolat ;        600 ;   g ;  non ;   799
+ 2973 ;  Boulangerie et pâtisserie ;  Croissants aux amandes ;                             150 ;   g ;  oui ;   449
+ 6451 ;  Boulangerie et pâtisserie ;  Biscuits croquants double chocolat ;                 240 ;   g ;  oui ;   499
+ 9673 ;  Boulangerie et pâtisserie ;  Mini muffins aux pépites de chocolat ;               234 ;   g ;  oui ;   529
+ 5506 ;  Boulangerie et pâtisserie ;  Pains à saucisse extra moelleux ;                      6 ;  un ;  non ;   499
+ 3841 ;  Boulangerie et pâtisserie ;  Petites brioches au lait ;                           350 ;   g ;  non ;   799
+ 7773 ;  Surgelés ;  Jus d'orange sans pulpe concentré surgelé ;            295 ;  ml ;  non ;   249
+ 6976 ;  Surgelés ;  Saucisses enrobées de pâte sur bâton surgelées ;       300 ;   g ;  non ;   599
+  419 ;  Surgelés ;  Profiteroles enrobées de chocolat surgelées ;          300 ;   g ;  oui ;  1199
+ 2929 ;  Surgelés ;  Viande de sanglier surgelée pour fondue ;              200 ;   g ;  non ;  1999
+  999 ;  Surgelés ;  Gâteau au fromage style New York surgelé ;             600 ;   g ;  non ;  1849
+  849 ;  Surgelés ;  Bâtonnets de pain doré, saveur de canelle surgelés ;   270 ;   g ;  non ;   479
+ 5122 ;  Surgelés ;  Gaufres aux brisures chocolatées surgelées ;           280 ;   g ;  non ;   479
+ 1883 ;  Surgelés ;  Frites style traditionel surgelées ;                   750 ;   g ;  non ;   499
+ 4723 ;  Surgelés ;  Macédoine de légumes surgelée ;                        750 ;   g ;  non ;   549
+ 6084 ;  Surgelés ;  Crème glacée à l'ancienne aux brisures de chocolat ;  2000 ;  ml ;  non ;   599
+ 3631 ;  Surgelés ;  Crème glacée à saveur de café ;                        450 ;  ml ;  oui ;   549
+   58 ;  Surgelés ;  Burgers végétaliens aux pois chiches surgelés ;        400 ;   g ;  non ;   799
+  681 ;  Surgelés ;  Fraises tranchées surgelées ;                          600 ;   g ;  non ;   629
+ 4403 ;  Surgelés ;  Crème glacée à saveur de chocolat et noisette ;        450 ;  ml ;  oui ;   549
+  580 ;  Surgelés ;  Sandwichs à la crème glacée à la vanille ;            1440 ;  ml ;  oui ;   849
+ 4301 ;  Surgelés ;  Pizza végétarienne surgelée ;                          325 ;   g ;  non ;   799
+  164 ;  Surgelés ;  Pois verts sucrés surgelés ;                           500 ;   g ;  non ;   449
+ 4252 ;  Surgelés ;  Cornets de crème glacée à la vanille et chocolat ;     960 ;  ml ;  oui ;   849
+ 9164 ;  Garde-manger ;  Sauce pour pâtes aux tomates et basilic biologique ;   358 ;  ml ;  non ;   599
+ 2979 ;  Garde-manger ;  Haricots rouges foncés en conserve ;                   540 ;  ml ;  non ;   279
+ 7817 ;  Garde-manger ;  Farine de blé entier ;                                2500 ;   g ;  non ;   529
+  838 ;  Garde-manger ;  Barres aux morceaux de chocolat noir et amandes ;      165 ;   g ;  oui ;   529
+  961 ;  Garde-manger ;  Céréales à l'avoine croquante ;                        500 ;   g ;  non ;   579
+  909 ;  Garde-manger ;  Miel de fleurs sauvages ;                              500 ;   g ;  non ;   799
+ 9553 ;  Garde-manger ;  Beurre d'arachide crémeux, Biologique ;                500 ;   g ;  non ;   629
+ 5105 ;  Garde-manger ;  Barre de chocolat noir à l’orange intense ;            100 ;   g ;  oui ;   579
+ 8465 ;  Garde-manger ;  Céréales de grains de riz grillés au four ;            560 ;   g ;  non ;   829
+ 2504 ;  Garde-manger ;  Sirop d'érable ambré ;                                 540 ;  ml ;  non ;   949
+ 3712 ;  Garde-manger ;  Collations de compote de pommes non sucrées ;          452 ;   g ;  oui ;   299
+ 3531 ;  Garde-manger ;  Confiture de framboises ;                              250 ;  ml ;  non ;   579
+ 4507 ;  Garde-manger ;  Flocons d'épeautre biologique ;                        500 ;   g ;  non ;   679
+ 6671 ;  Garde-manger ;  Ketchup aux tomates ;                                 1000 ;  ml ;  non ;   699
+ 7138 ;  Garde-manger ;  Gomme sans sucre à saveur de menthe polaire ;           12 ;  un ;  oui ;   199
+ 9335 ;  Garde-manger ;  Moutarde de Dijon au miel ;                            200 ;  ml ;  non ;   579
+ 3935 ;  Garde-manger ;  Sauce soya ;                                           591 ;  ml ;  non ;  1049
+ 7741 ;  Garde-manger ;  Barre de protéines à saveur de chocolat ;               68 ;   g ;  oui ;   269
+ 3931 ;  Garde-manger ;  Sauce salsa à la mangue et piment poblano ;            430 ;  ml ;  non ;   599
+ 9590 ;  Garde-manger ;  Noix de cajou légèrement salées ;                      200 ;   g ;  oui ;   799
+ 8374 ;  Garde-manger ;  Petits cornichons à l'aneth et à l'ail sans sel ;     1000 ;  ml ;  non ;   449
+ 6243 ;  Garde-manger ;  Poudre à pâte ;                                        225 ;   g ;  non ;   499
+ 1996 ;  Garde-manger ;  Romarin moulu ;                                         20 ;   g ;  non ;   429
+ 1235 ;  Garde-manger ;  Mayonnaise classique à base d'huile d'avocat ;         355 ;  ml ;  non ;  1429
+ 4610 ;  Garde-manger ;  Pâtes macaroni de blé entier ;                         375 ;   g ;  non ;   399
+ 7885 ;  Garde-manger ;  Arachides enrobées de chocolat au lait ;               340 ;   g ;  oui ;   599
+ 7889 ;  Garde-manger ;  Granola d'avoine germée, miel et chanvre ;             312 ;   g ;  non ;   799
+ 6935 ;  Garde-manger ;  Riz basmati aromatique à long grain ;                 4540 ;   g ;  non ;  2299
+ 5436 ;  Garde-manger ;  Vinaigre balsamique de Modène affiné ;                 500 ;  ml ;  non ;   649
+ 2371 ;  Garde-manger ;  Bonbons au caramel crémeux ;                           128 ;   g ;  oui ;   379
+ 2487 ;  Garde-manger ;  Huile d'olive extra vierge non filtrée biologique ;    500 ;  ml ;  non ;  1799
+ 8059 ;  Garde-manger ;  Marinade à l'ail douce ;                               341 ;  ml ;  non ;   479
+ 2471 ;  Garde-manger ;  Quinoa tricolore ;                                     375 ;   g ;  non ;   899
+  426 ;  Soins et beauté ;  Shampoing hydratation quotidienne ;                  355 ;  ml ;  oui ;   799
+   47 ;  Soins et beauté ;  Gel douche pour corps et visage, avec aloès ;        500 ;  ml ;  oui ;   799
+ 7261 ;  Soins et beauté ;  Cotons-Tiges ;                                       400 ;  un ;  oui ;   599
+ 7763 ;  Soins et beauté ;  Lingettes démaquillantes à l'eau micellaire ;         30 ;  un ;  oui ;   349
+ 6327 ;  Soins et beauté ;  Revitalisant pour cheveux fins ;                     828 ;  ml ;  oui ;   799
+ 3489 ;  Soins et beauté ;  Savon à mains naturel aux feuilles d'olivier ;       473 ;  ml ;  oui ;   799
+ 9355 ;  Soins et beauté ;  Désodorisant en bâton au parfum de brise d'océan ;    85 ;   g ;  oui ;   599
+ 4322 ;  Soins et beauté ;  Savon crémeux au beurre de karité ;                  141 ;   g ;  oui ;   199
+ 2228 ;  Soins et beauté ;  Shampoing fortifiant pour cheveux secs ;             370 ;  ml ;  oui ;   599
+ 6774 ;  Soins et beauté ;  Dentifrice à la menthe pure ;                         70 ;  ml ;  oui ;   279
+ 2856 ;  Soins et beauté ;  Savon en barre pour peau sensible ;                  636 ;   g ;  oui ;  1299
+  950 ;  Soins et beauté ;  Pansements en tissu flexible assortis ;               80 ;  un ;  oui ;   899
+ 8906 ;  Soins et beauté ;  Shampoing et revitalisant antipelliculaire ;         420 ;  ml ;  oui ;   699
+ 9388 ;  Soins et beauté ;  Antisudorifique en bâton non parfumé ;                85 ;   g ;  oui ;   599
+ 5653 ;  Soins et beauté ;  Rasoirs jetables pour peaux sensibles ;                3 ;  un ;  oui ;   849
+ 9533 ;  Soins et beauté ;  Soie dentaire à saveur de menthe fraîche ;             3 ;  un ;  oui ;  1199
+ 7492 ;  Entretien ménager ;  Papier hygiénique triple épaisseurs ;                   12 ;  un ;  oui ;  1549
+ 2174 ;  Entretien ménager ;  Savon à vaisselle au parfum original ;                 473 ;  ml ;  oui ;   399
+ 8695 ;  Entretien ménager ;  Assouplissant textile liquide au parfum fraîcheur ;   1470 ;  ml ;  oui ;   779
+ 9626 ;  Entretien ménager ;  Nettoyant tout usage 4 en 1 en vaporisateur ;          650 ;  ml ;  oui ;   679
+ 6051 ;  Entretien ménager ;  Papiers-mouchoirs triple épaisseur ;                     3 ;  un ;  oui ;   949
+ 2931 ;  Entretien ménager ;  Détergent à lessive liquide au parfum Brise marine ;  1800 ;  ml ;  oui ;   549
+ 5580 ;  Entretien ménager ;  Nettoyant pour salle de bain au parfum d'agrumes ;     950 ;  ml ;  oui ;   679
+  710 ;  Entretien ménager ;  Eau Javellisante protection des tissus ;              2400 ;  ml ;  oui ;   549
+ 6916 ;  Entretien ménager ;  Lingettes désinfectantes au parfum d'agrumes ;          35 ;  un ;  oui ;   399
+ 9241 ;  Entretien ménager ;  Essuie-tout double épaisseur ;                           4 ;  un ;  oui ;  1299
+ 9874 ;  Entretien ménager ;  Détergent pour lave-vaisselle en tablettes ;            26 ;  un ;  oui ;  1499
+ 1932 ;  Entretien ménager ;  Sacs pour sandwich ;                                    40 ;  un ;  oui ;   399
+ 9753 ;  Entretien ménager ;  Feuilles d'assouplissant textile Fraîcheur, 4 en 1 ;   200 ;  un ;  oui ;  1399
+ 5406 ;  Entretien ménager ;  Brosse pour vaisselle ;                                  1 ;  un ;  oui ;   429
+ 6140 ;  Entretien ménager ;  Petits sacs à ordures blancs senteur fraîche ;          48 ;  un ;  oui ;   799
+ 5021 ;  Entretien ménager ;  Nettoyant pour cuisine au parfum d'agrumes ;           800 ;  ml ;  oui ;   629
+
