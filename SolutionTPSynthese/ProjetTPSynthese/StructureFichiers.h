@@ -11,7 +11,7 @@ struct structureProduitTxt
 	int quantiteProduit;
 	string uniteProduit;
 	bool estTaxable;
-	double prixProduit;
+	int prixProduit;
 };
 
 struct structureInventaireTxt

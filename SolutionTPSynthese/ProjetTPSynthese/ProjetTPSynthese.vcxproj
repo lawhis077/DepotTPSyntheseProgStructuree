@@ -129,10 +129,13 @@
   <ItemGroup>
     <ClCompile Include="Affichage.cpp" />
     <ClCompile Include="MainSynthese.cpp" />
+    <ClCompile Include="Strings.cpp" />
     <ClCompile Include="Utilitaire.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Affichage.h" />
+    <ClInclude Include="Constante.h" />
+    <ClInclude Include="Strings.h" />
     <ClInclude Include="StructureFichiers.h" />
     <ClInclude Include="Utilitaire.h" />
   </ItemGroup>

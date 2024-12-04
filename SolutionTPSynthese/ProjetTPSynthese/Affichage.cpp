@@ -84,7 +84,9 @@ void effectuer_achat()
 	cout << "- 'A' pour annuler la facture" << endl;
 	cout << ">" << endl;
 
-	while (choixAchats != 'L' || choixAchats != 'A')
+	getline(cin, choixAchats);
+
+	while (choixAchats != 'L' && choixAchats != 'A')
 	{
 		cout << endl;
 		system("cls");
