@@ -74,3 +74,14 @@ bool ouvrir_fichier_en_ecriture(ofstream& canalEcritureFichier, string nomFichie
 	}
 
 }
+
+char convertion_de_string_en_char(string choixUtilisateur)
+{
+	char entreeChoixUtilisateur;
+
+	entreeChoixUtilisateur = choixUtilisateur.at(0);
+
+	entreeChoixUtilisateur = toupper(entreeChoixUtilisateur);
+
+	return entreeChoixUtilisateur;
+}
