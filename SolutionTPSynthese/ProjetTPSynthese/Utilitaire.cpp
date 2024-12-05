@@ -7,6 +7,10 @@ bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier)
 {
 	vector <structureProduitTxt> itemEstValide;
 	vector <string> item;
+
+	vector <structureInventaireTxt> itemInventaireEstValide;
+	vector <string> itemInventaire;
+
 	canalLectureFichier.open(nomFichier);
 
 	ifstream canalLectureProduit;
@@ -18,18 +22,17 @@ bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier)
 
 	if (canalLectureFichier.is_open())
 	{
-		
-		if (nomFichier == "Produits.txt")
+		if (nomFichier == FICHIER_PRODUITS)
 		{
 			while (getline(canalLectureProduit, ligneProduitTxt))
 			{
 				compteurLigne++;
 				rogner_espaces(ligneProduitTxt);
 
-				if (ligneProduitTxt.at(0) != '#')
+				if (ligneProduitTxt.at(0) != CARACTERE_COMMENTAIRE)
 				{
 				 
-					item = separer(ligneProduitTxt, ';');
+					item = separer(ligneProduitTxt, SEPARATEUR_PRODUITS);
 					structureProduitTxt produit;
 
 					if (item.size() <= 7)
@@ -44,11 +47,11 @@ bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier)
 							produit.nomProduit = item.at(2);
 							extraire_entier(item.at(3), produit.quantiteProduit);
 							rogner_espaces(item.at(4));
-							produit.uniteProduit == item.at(4);
+							produit.uniteProduit = item.at(4);
 
-							if (produit.quantiteProduit > 0 || (produit.quantiteProduit == 0 &&  produit.uniteProduit  == "kg"))
+							if (produit.quantiteProduit > 0 || (produit.quantiteProduit == 0 &&  produit.uniteProduit  == UNITE_POSSIBLE.at(0)))
 							{
-								bool uniteEstValide;
+								bool uniteEstValide = false;
 
 								for (int i = 0; i < UNITE_POSSIBLE.size(); i++)
 								{
@@ -58,7 +61,7 @@ bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier)
 									}
 								}
 
-								if (uniteEstValide)
+								if (uniteEstValide == true)
 								{
 
 									rogner_espaces(item.at(5));
@@ -80,6 +83,7 @@ bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier)
 										}
 
 										extraire_entier(item.at(6), produit.prixProduit);
+
 										if (produit.prixProduit > 0)
 										{
 											itemEstValide.push_back(produit);
@@ -107,9 +111,6 @@ bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier)
 								cout << "Erreur! à la ligne " << compteurLigne;
 							}
 
-
-
-
 						}
 						else
 						{
@@ -128,7 +129,7 @@ bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier)
 
 
 
-					itemEstValide.push_back(produit);
+				
 				}
 				else
 				{
@@ -136,25 +137,34 @@ bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier)
 				}
 
 
-
-				// Ligne invalide?
-				// Prix plus grand que zero
-				// quantité plus grnd ou egal que zero
-				// code >= 0
-
 			}
 		}
 		
-		if (nomFichier == "Inventaire.txt")
+		if (nomFichier == FICHIER_INVENTAIRE)
 		{
 			while (getline(canalLectureProduit, ligneInventaireTxt))
 			{
-				if (ligneInventaireTxt.at(0) != '#')
-				{
-					compteurLigne++;
-				}
+				structureInventaireTxt inventaire;
+				compteurLigne++;
 
-				// Ligne invalide?
+				itemInventaire = separer(ligneInventaireTxt, SEPARATEUR_INVENTAIRE);
+
+				if (itemInventaire.size() == 1)
+				{
+					bool estExtrait;
+
+					estExtrait = extraire_entier(itemInventaire.at(0), inventaire.codeProduitInventaire);
+
+					if (inventaire.codeProduitInventaire >= 0 || estExtrait)
+					{
+						extraire_entier(itemInventaire.at(1), inventaire.nombreProduitInventaire);
+
+						if (inventaire.nombreProduitInventaire >= 0)
+						{
+							itemInventaireEstValide.push_back(inventaire);
+						}
+					}
+				}
 			}
 		}
 
@@ -175,7 +185,7 @@ bool ouvrir_fichier_en_ecriture(ofstream& canalEcritureFichier, string nomFichie
 	if (ajouterALaFin)
 	{
 		canalEcritureFichier.open(nomFichier, ofstream::app);
-	}
+	} 
 	else
 	{
 		canalEcritureFichier.open(nomFichier);
@@ -196,13 +206,27 @@ bool ouvrir_fichier_en_ecriture(ofstream& canalEcritureFichier, string nomFichie
 char convertion_de_string_en_char(string choixUtilisateur)
 {
 	char entreeChoixUtilisateur;
+	bool estValide;
 
-	// Verifier string.size == 1
-	// Faire erreur si string vide
-
-	entreeChoixUtilisateur = choixUtilisateur.at(0);
-
-	entreeChoixUtilisateur = toupper(entreeChoixUtilisateur);
-
+	while (!estValide)
+	{
+	
+		if (choixUtilisateur.size() == 0)
+		{
+			if (!choixUtilisateur.empty())
+			{
+				entreeChoixUtilisateur = choixUtilisateur.at(0);
+				entreeChoixUtilisateur = toupper(entreeChoixUtilisateur);
+				estValide = true;
+			
+			}
+		
+		}
+		else
+		{
+			cout << "Erreur de l'entrée de donnée, veuillez entrer un seul caractère!! \n";
+			getline(cin, choixUtilisateur);
+		}
+	}
 	return entreeChoixUtilisateur;
 }
