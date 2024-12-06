@@ -206,7 +206,7 @@ bool ouvrir_fichier_en_ecriture(ofstream& canalEcritureFichier, string nomFichie
 char convertion_de_string_en_char(string choixUtilisateur)
 {
 	char entreeChoixUtilisateur;
-	bool estValide;
+	bool estValide = false;
 
 	while (!estValide)
 	{

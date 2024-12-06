@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Affichage.cpp" />
+    <ClCompile Include="FonctionsLCRE.cpp" />
     <ClCompile Include="MainSynthese.cpp" />
     <ClCompile Include="Strings.cpp" />
     <ClCompile Include="Utilitaire.cpp" />
@@ -135,6 +136,7 @@
   <ItemGroup>
     <ClInclude Include="Affichage.h" />
     <ClInclude Include="Constante.h" />
+    <ClInclude Include="FonctionsLCRE.h" />
     <ClInclude Include="Strings.h" />
     <ClInclude Include="StructureFichiers.h" />
     <ClInclude Include="Utilitaire.h" />

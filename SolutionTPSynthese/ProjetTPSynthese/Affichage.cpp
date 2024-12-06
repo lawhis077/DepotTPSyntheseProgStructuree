@@ -4,7 +4,8 @@
 #include <vector>
 #include <string>
 #include "Utilitaire.h"
-
+#include "Constante.h"
+#include "FonctionsLCRE.h"
 
 using namespace std;
 
@@ -44,8 +45,39 @@ void lister_produits()
 	cout << " 3) Viandes et substituts\n" << endl << endl;
 	cout << "Choix : " << endl;
 	
+	getline(cin, choixListerProduit);
 
+	entreeChoixListerProduit = convertion_de_string_en_char(choixListerProduit);
 
+	entreeChoixListerProduit = toupper(entreeChoixListerProduit);
+
+	bool choixValide = false;
+
+	for (int i = 0; i < CHOIX_VALIDE_LISTER_PRODUIT.size(); i++)
+	{
+		if (entreeChoixListerProduit == CHOIX_VALIDE_LISTER_PRODUIT.at(i))
+		{
+			choixValide = true;
+		}
+	}
+
+	while (!choixValide)
+	{
+		cout << "Erreur!! Mauvaise entrée de donnée\n";
+		cout << "Choix : " << endl;
+
+		getline(cin, choixListerProduit);
+
+		for (int i = 0; i < CHOIX_VALIDE_LISTER_PRODUIT.size(); i++)
+		{
+			if (entreeChoixListerProduit == CHOIX_VALIDE_LISTER_PRODUIT.at(i))
+			{
+				choixValide = true;
+			}
+		}
+	}
+
+	operation_lister_produit(entreeChoixListerProduit);
 }
 
 void charger_circulaire()
@@ -54,7 +86,6 @@ void charger_circulaire()
 
 void recevoir_marchandise()
 {
-
 	cout << endl;
 	system("pause");
 
@@ -64,8 +95,6 @@ void recevoir_marchandise()
 	cout << endl;
 	cout << "Entrez le code du produit";
 	cout << "Choix : " << endl;
-
-
 }
 
 void effectuer_achat()
@@ -83,7 +112,4 @@ void effectuer_achat()
 	cout << "- 'L' pour lister les produits" << endl; 
 	cout << "- 'A' pour annuler la facture" << endl;
 	cout << ">" << endl;
-
-
-
 }
