@@ -5,11 +5,13 @@
 #include <vector>
 #include <string>
 #include "Utilitaire.h"
+#include "StructureFichiers.h"
+
 using namespace std;
 
 void afficher_menu();
 
-void lister_produits();
+void lister_produits(vector <structureProduitTxt>& itemEstValide, vector <structureInventaireTxt>& itemInventaireEstValide);
 
 void charger_circulaire();
 

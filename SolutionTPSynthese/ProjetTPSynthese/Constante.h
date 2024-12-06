@@ -16,6 +16,6 @@ const vector <string> UNITE_POSSIBLE{ "kg", "un", "g", "ml" };
 const int NOMBRE_VALEURS_PRODUITS = 7;
 const int NOMBRE_VALEURS_INVENTAIRE = 2;
 const char CARACTERE_COMMENTAIRE = '#';
-const vector <char> CHOIX_VALIDE_LISTER_PRODUIT{ '*', 'C', '1', '2', '3' };
+const vector <char> CHOIX_VALIDE_LISTER_PRODUIT{ '*', 'C'};
 
 

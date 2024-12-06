@@ -3,12 +3,12 @@
 #include "StructureFichiers.h"
 #include "Constante.h"
 
-bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier)
+bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier, vector <structureProduitTxt>& itemEstValide, vector <structureInventaireTxt>& itemInventaireEstValide)
 {
-	vector <structureProduitTxt> itemEstValide;
+	
 	vector <string> item;
 
-	vector <structureInventaireTxt> itemInventaireEstValide;
+	
 	vector <string> itemInventaire;
 
 	canalLectureFichier.open(nomFichier);
@@ -31,7 +31,6 @@ bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier)
 
 				if (ligneProduitTxt.at(0) != CARACTERE_COMMENTAIRE)
 				{
-				 
 					item = separer(ligneProduitTxt, SEPARATEUR_PRODUITS);
 					structureProduitTxt produit;
 

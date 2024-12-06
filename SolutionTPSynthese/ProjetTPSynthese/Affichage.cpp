@@ -25,11 +25,11 @@ void afficher_menu()
 	cout << "Choix : " << endl;
 }
 
-void lister_produits()
+void lister_produits(vector <structureProduitTxt>& itemEstValide, vector <structureInventaireTxt>& itemInventaireEstValide)
 {
 	string choixListerProduit;
 	char entreeChoixListerProduit;
-
+	vector <string> categorieProduit;
 	cout << endl;
 	system("pause");
 
@@ -40,18 +40,41 @@ void lister_produits()
 	cout << "*) Tous les produits\n";
 	cout << "C) Circulaire\n " << endl;
 	cout << "Catégorie\n" << endl;
-	cout << " 1) Farine et grains\n";
-	cout << " 2) Prêt à manger\n" ;
-	cout << " 3) Viandes et substituts\n" << endl << endl;
+
+	bool categorieSemblable;
+
+	for (int i = 0; i < itemEstValide.size(); i++)
+	{
+		for (int ii = 0; ii < categorieProduit.size(); ii++)
+		{
+			if (itemEstValide.at(i).categorieProduit == categorieProduit.at(ii))
+			{
+				categorieSemblable = true;
+			}
+			if (!categorieSemblable)
+			{
+				categorieProduit.push_back(itemEstValide.at(i).categorieProduit);
+			}
+		}
+	}
+
+	for (int i = 0; i < categorieProduit.size(); i++)
+	{
+		cout << i << ") " << categorieProduit.at(i);
+	}
 	cout << "Choix : " << endl;
 	
 	getline(cin, choixListerProduit);
+	
+	// Si isdigit et <= categorieProduit.size()
 
 	entreeChoixListerProduit = convertion_de_string_en_char(choixListerProduit);
 
 	entreeChoixListerProduit = toupper(entreeChoixListerProduit);
 
 	bool choixValide = false;
+
+	
 
 	for (int i = 0; i < CHOIX_VALIDE_LISTER_PRODUIT.size(); i++)
 	{

@@ -4,6 +4,7 @@
 #include <string>
 #include "Utilitaire.h"
 #include "Affichage.h"
+#include "StructureFichiers.h"
 using namespace std;
 
 const string FICHIER_PRODUITS = "Produit.txt";
@@ -11,6 +12,13 @@ int compteurLettres = 0;
 
 int main()
 {
+	// 7/12 -- Terminer Lister
+	// 8/12 -- Terminer Circulaire
+	// 9/12 -- Terminer Recevoir Marchandise
+	// 10/12 -- Effectuer Achat Terminer / Bugfixing
+
+	vector <structureProduitTxt> itemEstValide;
+	vector <structureInventaireTxt> itemInventaireEstValide;
 	setlocale(LC_ALL, "");
 
 	ifstream canalLectureFichierProduit;
@@ -21,9 +29,7 @@ int main()
 	char entreeChoixUtilisateur = 'Q';
 
 	// Quest-ce qui constitue une erreur dans la ligne ( < 0 ?) 
-	bool fichierProduitOuvert = ouvrir_fichier_en_lecture(canalLectureFichierProduit, FICHIER_PRODUITS);
-	
-
+	bool fichierProduitOuvert = ouvrir_fichier_en_lecture(canalLectureFichierProduit, FICHIER_PRODUITS, itemEstValide, itemInventaireEstValide);
 
 	afficher_menu();
 
@@ -32,8 +38,8 @@ int main()
 	entreeChoixUtilisateur = convertion_de_string_en_char(choixUtilisateur);
 
 
-	while (entreeChoixUtilisateur != 'L' || 
-		entreeChoixUtilisateur != 'C' || 
+	while (entreeChoixUtilisateur != 'L' && 
+		entreeChoixUtilisateur != 'C' && 
 		entreeChoixUtilisateur != 'R' ||
 		entreeChoixUtilisateur != 'A' ||
 		entreeChoixUtilisateur != 'Q')
@@ -48,11 +54,12 @@ int main()
 
 		entreeChoixUtilisateur = toupper(entreeChoixUtilisateur);
 	}
+
 	switch (entreeChoixUtilisateur)
 	{
 	case 'L': 
 
-		lister_produits();
+		lister_produits(itemEstValide, itemInventaireEstValide);
 
 		break;
 

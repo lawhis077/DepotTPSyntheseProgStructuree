@@ -4,13 +4,13 @@
 #include <vector>
 #include <string>
 #include <fstream>
-
+#include "StructureFichiers.h"
 using namespace std;
 
 // Ouvre le canal vers le fichier portant le nom donné et initialise la variable filestream donnée
 // Affiche un message d'erreur si le canal est pas ouvert
 // Retourne true si le canal est ouvert, false sinon
-bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier);
+bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier, vector <structureProduitTxt>& itemEstValide, vector <structureInventaireTxt>& itemInventaireEstValide);
 
 // Si ajouterALaFin est vraie, on écrase pas le fichier existant 
 bool ouvrir_fichier_en_ecriture(ofstream& canalEcritureFichier, string nomFichier, bool ajouterALaFin);
