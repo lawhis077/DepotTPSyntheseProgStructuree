@@ -14,71 +14,55 @@ void verifier_fichier_produit(ifstream& canalLectureFichier, vector<string>& ite
 
 	string ligneProduitTxt;
 
-	ifstream canalLectureProduit;
-
-	bool erreurFichierProduit = false;
-
-	while (getline(canalLectureProduit, ligneProduitTxt))
+	while (getline(canalLectureFichier, ligneProduitTxt))
 	{
+		bool erreurFichierProduit = true;
 		compteurLigne++;
 		rogner_espaces(ligneProduitTxt);
 
-		if (ligneProduitTxt.at(0) != CARACTERE_COMMENTAIRE)
+		if (ligneProduitTxt.size() > 0 && ligneProduitTxt.at(0) != CARACTERE_COMMENTAIRE)
 		{
 			itemProduit = separer(ligneProduitTxt, SEPARATEUR_PRODUITS);
 			rogner_espaces_vecteur(itemProduit);
 
-			if (itemProduit.size() != NOMBRE_VALEURS_PRODUITS)
+			if (itemProduit.size() == NOMBRE_VALEURS_PRODUITS)
 			{
-				erreurFichierProduit = true;
-			}
+				structureProduitTxt produit;
+				ajuster_produit(itemProduit, produit);
 
-			structureProduitTxt produit;
-			ajuster_produit(itemProduit, produit);
-
-			if (produit.codeProduit < 0)
-			{
-				erreurFichierProduit = true;
-			}
-
-			if (produit.quantiteProduit < 0 || (produit.quantiteProduit != 0 && produit.uniteProduit != UNITE_POSSIBLE.at(0)))
-			{
-				erreurFichierProduit = true;
-			}
-
-			bool uniteEstValide = false;
-
-			for (int i = 0; i < UNITE_POSSIBLE.size(); i++)
-			{
-				if (produit.uniteProduit == UNITE_POSSIBLE.at(i))
+				if (produit.codeProduit >= 0)
 				{
-					uniteEstValide = true;
+
+						bool uniteEstValide = false;
+
+						for (int i = 0; i < UNITE_POSSIBLE.size(); i++)
+						{
+							if (produit.uniteProduit == UNITE_POSSIBLE.at(i))
+							{
+								uniteEstValide = true;
+							}
+						}
+
+						if (uniteEstValide == true)
+						{
+							if (itemProduit.at(5) == "oui" || itemProduit.at(5) == "non")
+							{
+								if (produit.prixProduit > 0)
+								{
+									itemProduitEstValide.push_back(produit);
+									erreurFichierProduit = false;
+								}
+							}
+						}
+					}
 				}
-			}
-
-			if (uniteEstValide == false)
-			{
-				erreurFichierProduit = true;
-			}
-
-			if (itemProduit.at(5) != "oui" || itemProduit.at(5) != "non")
-			{
-				erreurFichierProduit = true;
-			}
-
-			if (produit.prixProduit < 0)
-			{
-				erreurFichierProduit = true;
 			}
 
 			if (erreurFichierProduit)
 			{
-				cout << "Erreur à la ligne " << compteurLigne;
+				cout << "Erreur à la ligne " << compteurLigne << endl;
 			}
-			else
-			{
-				itemProduitEstValide.push_back(produit);
-			}
+
 		}
 	}
 }

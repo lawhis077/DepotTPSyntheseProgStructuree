@@ -22,7 +22,7 @@ void afficher_menu()
 	cout << "R) Recevoir Marchandise\n";
 	cout << "A) Effectuer Achats\n";
 	cout << "Q) Quitter\n" << endl;
-	cout << "Choix : " << endl;
+	cout << "Choix : ";
 }
 
 void redirection_sous_menu(char entreeChoixUtilisateur, vector <structureProduitTxt>& itemEstValide, vector <structureInventaireTxt>& itemInventaireEstValide)
@@ -67,7 +67,7 @@ void lister_produits(vector <structureProduitTxt>& itemEstValide, vector <struct
 	vector <string> categorieProduit;
 
 	cout << endl;
-	system("pause");
+	system("cls");
 
 	cout << "-----------------------------------\n";
 	cout << " Afficher la liste de produits\n";
@@ -79,10 +79,13 @@ void lister_produits(vector <structureProduitTxt>& itemEstValide, vector <struct
 
 	bool categorieSemblable = false;
 
+	// to work on
+
 	for (int i = 0; i < itemEstValide.size(); i++)
 	{
-		for (int ii = 0; ii < categorieProduit.size(); ii++)
+		for (int ii = 0; ii < CATEGORIES_POSSIBLES.size(); ii++)
 		{
+			categorieSemblable = false;
 			if (itemEstValide.at(i).categorieProduit == categorieProduit.at(ii))
 			{
 				categorieSemblable = true;
@@ -91,7 +94,6 @@ void lister_produits(vector <structureProduitTxt>& itemEstValide, vector <struct
 			{
 				categorieProduit.push_back(itemEstValide.at(i).categorieProduit);
 			}
-			categorieSemblable = false;
 		}
 	}
 
@@ -100,9 +102,9 @@ void lister_produits(vector <structureProduitTxt>& itemEstValide, vector <struct
 		cout << i + 1 << ") " << categorieProduit.at(i);
 	}
 
-	cout << "Choix : " << endl;
+	cout << "Choix : ";
 
-	// choix_lister_produit(choixListerProduit, entreeChoixListerProduit, categorieProduit, itemEstValide, itemInventaireEstValide);
+	choix_lister_produit(choixListerProduit, entreeChoixListerProduit, categorieProduit, itemEstValide, itemInventaireEstValide);
 }
 
 void charger_circulaire()

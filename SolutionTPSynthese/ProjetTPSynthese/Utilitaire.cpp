@@ -67,7 +67,7 @@ bool ouvrir_fichier_en_ecriture(ofstream& canalEcritureFichier, string nomFichie
 
 }
 
-char convertion_de_string_en_char(string choixUtilisateur)
+char convertion_de_string_en_char(string& choixUtilisateur)
 {
 	char entreeChoixUtilisateur;
 	bool estValide = false;
@@ -76,7 +76,7 @@ char convertion_de_string_en_char(string choixUtilisateur)
 	{
 		if (!choixUtilisateur.empty())
 		{
-			if (choixUtilisateur.size() == 0)
+			if (choixUtilisateur.size() == 1)
 			{
 				
 				entreeChoixUtilisateur = choixUtilisateur.at(0);

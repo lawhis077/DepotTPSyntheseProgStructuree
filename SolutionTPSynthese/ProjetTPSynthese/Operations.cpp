@@ -19,7 +19,7 @@ void operation_lister_produit(string choixListerProduit, char& entreeChoixLister
 						nombreInventaireProduit = itemInventaireEstValide.at(ii).nombreProduitInventaire;
 					}
 				}
-
+				
 				if (nombreInventaireProduit == RUPTURE_DE_STOCK)
 				{
 					string codeProduitEnChaine = entier_en_chaine(itemEstValide.at(i).codeProduit);

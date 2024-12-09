@@ -17,7 +17,7 @@ bool ouvrir_fichier_en_ecriture(ofstream& canalEcritureFichier, string nomFichie
 
 // Boucle faisant la convertion du string compatible avec le getline à un char qui spécifie le choix entrée
 // par l'utilisateur
-char convertion_de_string_en_char(string choixUtilisateur);
+char convertion_de_string_en_char(string& choixUtilisateur);
 
 void rogner_espaces_vecteur(vector<string>& vecteurAvecEspace);
 
