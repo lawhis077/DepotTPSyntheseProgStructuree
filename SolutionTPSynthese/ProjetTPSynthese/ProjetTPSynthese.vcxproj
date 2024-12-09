@@ -128,18 +128,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Affichage.cpp" />
-    <ClCompile Include="FonctionsLCRE.cpp" />
+    <ClCompile Include="ChoixSousMenu.cpp" />
     <ClCompile Include="MainSynthese.cpp" />
+    <ClCompile Include="Operations.cpp" />
     <ClCompile Include="Strings.cpp" />
     <ClCompile Include="Utilitaire.cpp" />
+    <ClCompile Include="VerfierErreurFichier.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Affichage.h" />
+    <ClInclude Include="ChoixSousMenu.h" />
     <ClInclude Include="Constante.h" />
-    <ClInclude Include="FonctionsLCRE.h" />
+    <ClInclude Include="Operations.h" />
     <ClInclude Include="Strings.h" />
     <ClInclude Include="StructureFichiers.h" />
     <ClInclude Include="Utilitaire.h" />
+    <ClInclude Include="VerfierErreurFichier.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

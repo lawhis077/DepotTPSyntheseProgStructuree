@@ -2,169 +2,34 @@
 #include "Strings.h"
 #include "StructureFichiers.h"
 #include "Constante.h"
+#include "VerfierErreurFichier.h"
 
-bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier, vector <structureProduitTxt>& itemEstValide, vector <structureInventaireTxt>& itemInventaireEstValide)
+bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier, vector <structureProduitTxt>& itemProduitEstValide, vector <structureInventaireTxt>& itemInventaireEstValide)
 {
 	
-	vector <string> item;
-
-	
+	vector <string> itemProduit;
 	vector <string> itemInventaire;
 
 	canalLectureFichier.open(nomFichier);
 
-	ifstream canalLectureProduit;
-
-	string ligneProduitTxt;
-	string ligneInventaireTxt;
-
-	int compteurLigne = 0;
-
 	if (canalLectureFichier.is_open())
 	{
+
 		if (nomFichier == FICHIER_PRODUITS)
 		{
-			while (getline(canalLectureProduit, ligneProduitTxt))
-			{
-				compteurLigne++;
-				rogner_espaces(ligneProduitTxt);
-
-				if (ligneProduitTxt.at(0) != CARACTERE_COMMENTAIRE)
-				{
-					item = separer(ligneProduitTxt, SEPARATEUR_PRODUITS);
-					structureProduitTxt produit;
-
-					if (item.size() <= 7)
-					{
-						extraire_entier(item.at(0), produit.codeProduit);
-
-						if (produit.codeProduit > 0)
-						{
-							rogner_espaces(item.at(1));
-							rogner_espaces(item.at(2));
-							produit.categorieProduit = item.at(1);
-							produit.nomProduit = item.at(2);
-							extraire_entier(item.at(3), produit.quantiteProduit);
-							rogner_espaces(item.at(4));
-							produit.uniteProduit = item.at(4);
-
-							if (produit.quantiteProduit > 0 || (produit.quantiteProduit == 0 &&  produit.uniteProduit  == UNITE_POSSIBLE.at(0)))
-							{
-								bool uniteEstValide = false;
-
-								for (int i = 0; i < UNITE_POSSIBLE.size(); i++)
-								{
-									if (produit.uniteProduit == UNITE_POSSIBLE.at(i))
-									{
-										uniteEstValide == true;
-									}
-								}
-
-								if (uniteEstValide == true)
-								{
-
-									rogner_espaces(item.at(5));
-									
-									if (item.at(5) == "oui" || item.at(5) == "non")
-									{
-										if (item.at(5) == "oui")
-										{
-											produit.estTaxable == true;
-
-										}
-										else if (item.at(5) == "non")
-										{
-											produit.estTaxable == false;
-										}
-										else
-										{
-											cout << "Erreur! à la ligne " << compteurLigne;
-										}
-
-										extraire_entier(item.at(6), produit.prixProduit);
-
-										if (produit.prixProduit > 0)
-										{
-											itemEstValide.push_back(produit);
-										}
-										else
-										{
-											cout << "Erreur! à la ligne " << compteurLigne;
-										}
-
-									}
-									else
-									{
-										cout << "Erreur! à la ligne " << compteurLigne;
-									}
-
-								}
-								else
-								{
-									cout << "Erreur! à la ligne " << compteurLigne;
-								}
-
-							}
-							else
-							{
-								cout << "Erreur! à la ligne " << compteurLigne;
-							}
-
-						}
-						else
-						{
-							cout << "Erreur! à la ligne " << compteurLigne;
-						}
-
-
-
-					}
-					else
-					{
-						cout << "Erreur! à la ligne " << compteurLigne;
-					}
-
-
-
-
-
-				
-				}
-				else
-				{
-					cout << "Erreur! à la ligne " << compteurLigne;
-				}
-
-
-			}
+			verifier_fichier_produit(canalLectureFichier, itemProduit, itemProduitEstValide, nomFichier);
 		}
+		
 		
 		if (nomFichier == FICHIER_INVENTAIRE)
 		{
-			while (getline(canalLectureProduit, ligneInventaireTxt))
-			{
-				structureInventaireTxt inventaire;
-				compteurLigne++;
+			verifier_fichier_inventaire(canalLectureFichier, itemInventaire, itemInventaireEstValide, nomFichier);
+			
+		}
 
-				itemInventaire = separer(ligneInventaireTxt, SEPARATEUR_INVENTAIRE);
-
-				if (itemInventaire.size() == 1)
-				{
-					bool estExtrait;
-
-					estExtrait = extraire_entier(itemInventaire.at(0), inventaire.codeProduitInventaire);
-
-					if (inventaire.codeProduitInventaire >= 0 || estExtrait)
-					{
-						extraire_entier(itemInventaire.at(1), inventaire.nombreProduitInventaire);
-
-						if (inventaire.nombreProduitInventaire >= 0)
-						{
-							itemInventaireEstValide.push_back(inventaire);
-						}
-					}
-				}
-			}
+		if (nomFichier == FICHIER_CIRCULAIRE)
+		{
+			// verifier_fichier_circulaire();
 		}
 
 		return true;
@@ -209,11 +74,11 @@ char convertion_de_string_en_char(string choixUtilisateur)
 
 	while (!estValide)
 	{
-	
-		if (choixUtilisateur.size() == 0)
+		if (!choixUtilisateur.empty())
 		{
-			if (!choixUtilisateur.empty())
+			if (choixUtilisateur.size() == 0)
 			{
+				
 				entreeChoixUtilisateur = choixUtilisateur.at(0);
 				entreeChoixUtilisateur = toupper(entreeChoixUtilisateur);
 				estValide = true;
@@ -229,3 +94,40 @@ char convertion_de_string_en_char(string choixUtilisateur)
 	}
 	return entreeChoixUtilisateur;
 }
+
+void rogner_espaces_vecteur(vector<string>& vecteurAvecEspace)
+{
+	for (int i = 0; i < vecteurAvecEspace.size(); i++)
+	{
+		rogner_espaces(vecteurAvecEspace.at(i));
+	}
+}
+
+void ajuster_produit(vector <string> itemProduit, structureProduitTxt& produit)
+{
+	extraire_entier(itemProduit.at(0), produit.codeProduit);
+	produit.categorieProduit = itemProduit.at(1);
+	produit.nomProduit = itemProduit.at(2);
+	extraire_entier(itemProduit.at(3), produit.quantiteProduit);
+	produit.uniteProduit = itemProduit.at(4);
+	produit.estTaxable = itemProduit.at(5);
+	extraire_entier(itemProduit.at(6), produit.prixProduit);
+
+}
+
+void ajuster_inventaire(vector<string> itemInventaire, structureInventaireTxt& inventaire)
+{
+	extraire_entier(itemInventaire.at(0), inventaire.codeProduitInventaire);
+	extraire_entier(itemInventaire.at(1), inventaire.nombreProduitInventaire);
+}
+
+void entree_utilisateur(string& stringChoix, char& charChoix)
+{
+	charChoix = convertion_de_string_en_char(stringChoix);
+
+	stringChoix.clear();
+
+	stringChoix.push_back(charChoix);
+
+}
+

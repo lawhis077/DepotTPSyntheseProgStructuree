@@ -10,7 +10,7 @@ struct structureProduitTxt
 	string nomProduit;
 	int quantiteProduit;
 	string uniteProduit;
-	bool estTaxable;
+	string estTaxable;
 	int prixProduit;
 };
 

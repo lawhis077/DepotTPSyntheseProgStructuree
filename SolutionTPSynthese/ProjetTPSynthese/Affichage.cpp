@@ -5,8 +5,8 @@
 #include <string>
 #include "Utilitaire.h"
 #include "Constante.h"
-#include "FonctionsLCRE.h"
-
+#include "Strings.h"
+#include "ChoixSousMenu.h"
 using namespace std;
 
 void afficher_menu()
@@ -25,11 +25,47 @@ void afficher_menu()
 	cout << "Choix : " << endl;
 }
 
+void redirection_sous_menu(char entreeChoixUtilisateur, vector <structureProduitTxt>& itemEstValide, vector <structureInventaireTxt>& itemInventaireEstValide)
+{
+	switch (entreeChoixUtilisateur)
+	{
+	case 'L':
+
+		lister_produits(itemEstValide, itemInventaireEstValide);
+
+		break;
+
+	case 'C':
+
+		charger_circulaire();
+
+		break;
+
+	case 'R':
+
+		recevoir_marchandise();
+
+		break;
+
+	case 'A':
+
+		effectuer_achat();
+
+		break;
+
+	case 'Q':
+		break;
+	}
+
+
+}
+
 void lister_produits(vector <structureProduitTxt>& itemEstValide, vector <structureInventaireTxt>& itemInventaireEstValide)
 {
 	string choixListerProduit;
 	char entreeChoixListerProduit;
 	vector <string> categorieProduit;
+
 	cout << endl;
 	system("pause");
 
@@ -41,7 +77,7 @@ void lister_produits(vector <structureProduitTxt>& itemEstValide, vector <struct
 	cout << "C) Circulaire\n " << endl;
 	cout << "Catégorie\n" << endl;
 
-	bool categorieSemblable;
+	bool categorieSemblable = false;
 
 	for (int i = 0; i < itemEstValide.size(); i++)
 	{
@@ -55,52 +91,18 @@ void lister_produits(vector <structureProduitTxt>& itemEstValide, vector <struct
 			{
 				categorieProduit.push_back(itemEstValide.at(i).categorieProduit);
 			}
+			categorieSemblable = false;
 		}
 	}
 
 	for (int i = 0; i < categorieProduit.size(); i++)
 	{
-		cout << i << ") " << categorieProduit.at(i);
+		cout << i + 1 << ") " << categorieProduit.at(i);
 	}
+
 	cout << "Choix : " << endl;
-	
-	getline(cin, choixListerProduit);
-	
-	// Si isdigit et <= categorieProduit.size()
 
-	entreeChoixListerProduit = convertion_de_string_en_char(choixListerProduit);
-
-	entreeChoixListerProduit = toupper(entreeChoixListerProduit);
-
-	bool choixValide = false;
-
-	
-
-	for (int i = 0; i < CHOIX_VALIDE_LISTER_PRODUIT.size(); i++)
-	{
-		if (entreeChoixListerProduit == CHOIX_VALIDE_LISTER_PRODUIT.at(i))
-		{
-			choixValide = true;
-		}
-	}
-
-	while (!choixValide)
-	{
-		cout << "Erreur!! Mauvaise entrée de donnée\n";
-		cout << "Choix : " << endl;
-
-		getline(cin, choixListerProduit);
-
-		for (int i = 0; i < CHOIX_VALIDE_LISTER_PRODUIT.size(); i++)
-		{
-			if (entreeChoixListerProduit == CHOIX_VALIDE_LISTER_PRODUIT.at(i))
-			{
-				choixValide = true;
-			}
-		}
-	}
-
-	operation_lister_produit(entreeChoixListerProduit);
+	// choix_lister_produit(choixListerProduit, entreeChoixListerProduit, categorieProduit, itemEstValide, itemInventaireEstValide);
 }
 
 void charger_circulaire()
