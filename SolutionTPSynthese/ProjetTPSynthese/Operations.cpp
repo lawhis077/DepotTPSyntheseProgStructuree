@@ -3,7 +3,7 @@
 void operation_lister_produit(string choixListerProduit, char& entreeChoixListerProduit, int choixListerProduitEnInt, vector<string> categorieProduit,
 	vector<structureProduitTxt>& itemEstValide, vector<structureInventaireTxt>& itemInventaireEstValide)
 {
-	int nombreInventaireProduit;
+	int nombreInventaireProduit = 0;
 
 	if (entreeChoixListerProduit == CHOIX_VALIDE_LISTER_PRODUIT.at(0))
 	{
