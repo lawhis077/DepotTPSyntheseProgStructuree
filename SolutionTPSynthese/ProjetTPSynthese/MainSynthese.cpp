@@ -18,7 +18,7 @@ int main()
 	ifstream canalLectureFichierProduit;
 
 	bool fichierProduitOuvert = ouvrir_fichier_en_lecture(canalLectureFichierProduit, FICHIER_PRODUITS, itemEstValide, itemInventaireEstValide);
-
+	bool fichierInventaireOuvert = ouvrir_fichier_en_lecture(canalLectureFichierProduit, FICHIER_INVENTAIRE, itemEstValide, itemInventaireEstValide);
 	// menu_principale()
 	while (entreeChoixUtilisateur != 'Q')
 	{

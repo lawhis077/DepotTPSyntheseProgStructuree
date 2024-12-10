@@ -32,6 +32,7 @@ bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier,
 			// verifier_fichier_circulaire();
 		}
 
+		canalLectureFichier.close();
 		return true;
 	}
 	else

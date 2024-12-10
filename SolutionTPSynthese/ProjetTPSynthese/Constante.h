@@ -25,14 +25,11 @@ const char SIGNE_DOLLAR = '$';
 const char QUITTER = 'Q';
 const char RETOURNER = 'R';
 
-const string FICHIER_PRODUITS = "Produits 1.txt";
+const string FICHIER_PRODUITS = "Produits.txt";
 const string FICHIER_INVENTAIRE = "Inventaire.txt";
 const string FICHIER_CIRCULAIRE = "Circulaire.txt";
 const string HORS_DE_STOCK = "Aucun produit";
 const vector <string> UNITE_POSSIBLE{ "kg", "un", "g", "ml" };
-const vector <string> CATEGORIES_POSSIBLES{ "Fruits et légumes","Produits laitiers et oeufs","Boissons","Viandes, volailles et poissons",
-											"Boulangerie et pâtisserie","Surgelés","Garde-manger","Soins et beauté","Entretien ménager"};
-
 
 const vector <char> CHOIX_VALIDE_MENU_PRINCIPALE{ 'L','C', 'R' ,'A' , 'Q' };
 const vector <char> CHOIX_VALIDE_LISTER_PRODUIT{ '*', 'C'};

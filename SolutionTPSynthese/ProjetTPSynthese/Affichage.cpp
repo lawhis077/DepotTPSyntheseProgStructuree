@@ -56,8 +56,6 @@ void redirection_sous_menu(char entreeChoixUtilisateur, vector <structureProduit
 	case 'Q':
 		break;
 	}
-
-
 }
 
 void lister_produits(vector <structureProduitTxt>& itemEstValide, vector <structureInventaireTxt>& itemInventaireEstValide)
@@ -79,27 +77,28 @@ void lister_produits(vector <structureProduitTxt>& itemEstValide, vector <struct
 
 	bool categorieSemblable = false;
 
-	// to work on
-
 	for (int i = 0; i < itemEstValide.size(); i++)
 	{
-		for (int ii = 0; ii < CATEGORIES_POSSIBLES.size(); ii++)
+		categorieSemblable = false;
+
+		for (int ii = 0; ii < categorieProduit.size(); ii++)
 		{
-			categorieSemblable = false;
+
 			if (itemEstValide.at(i).categorieProduit == categorieProduit.at(ii))
 			{
 				categorieSemblable = true;
 			}
-			if (!categorieSemblable)
-			{
-				categorieProduit.push_back(itemEstValide.at(i).categorieProduit);
-			}
+		}
+
+		if (!categorieSemblable)
+		{
+			categorieProduit.push_back(itemEstValide.at(i).categorieProduit);
 		}
 	}
 
 	for (int i = 0; i < categorieProduit.size(); i++)
 	{
-		cout << i + 1 << ") " << categorieProduit.at(i);
+		cout << i + 1 << ") " << categorieProduit.at(i) << endl;
 	}
 
 	cout << "Choix : ";

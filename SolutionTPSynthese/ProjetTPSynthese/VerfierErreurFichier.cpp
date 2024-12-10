@@ -54,7 +54,7 @@ void verifier_fichier_produit(ifstream& canalLectureFichier, vector<string>& ite
 								}
 							}
 						}
-					}
+					
 				}
 			}
 
@@ -73,36 +73,24 @@ void verifier_fichier_inventaire(ifstream& canalLectureFichier, vector<string>& 
 
 	string ligneInventaireTxt;
 
-	ifstream canalLectureInventaire;
-
-	bool erreurFichierInventaire = false;
-
-	while (getline(canalLectureInventaire, ligneInventaireTxt))
+	while (getline(canalLectureFichier, ligneInventaireTxt))
 	{
 		structureInventaireTxt inventaire;
 		compteurLigne++;
 
 		itemInventaire = separer(ligneInventaireTxt, SEPARATEUR_INVENTAIRE);
 
-		if (itemInventaire.size() != NOMBRE_VALEURS_INVENTAIRE)
+		if (itemInventaire.size() == NOMBRE_VALEURS_INVENTAIRE)
 		{
-			erreurFichierInventaire = true;
-		}
+			ajuster_inventaire(itemInventaire, inventaire);
 
-		ajuster_inventaire(itemInventaire, inventaire);
-
-		if (inventaire.codeProduitInventaire < 0)
-		{
-			erreurFichierInventaire = true;
-		}
-		if (inventaire.nombreProduitInventaire < 0)
-		{
-			erreurFichierInventaire = true;
-		}
-		if (!erreurFichierInventaire)
-		{
-			itemInventaireEstValide.push_back(inventaire);
-		}
-		
+			if (inventaire.codeProduitInventaire > 0)
+			{
+				if (inventaire.nombreProduitInventaire > 0)
+				{
+					itemInventaireEstValide.push_back(inventaire);
+				}
+			}
+		}	
 	}
 }

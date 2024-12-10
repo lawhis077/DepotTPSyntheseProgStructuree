@@ -5,12 +5,13 @@ void choix_lister_produit(string& choixListerProduit, char& entreeChoixListerPro
 	int choixUtilisateurEnInt = 99;
 	int repetitionErreur = 0;
 	bool choixValide = false;
-	while (!choixValide && choixUtilisateurEnInt > 0)
+
+	while (!choixValide)
 	{
 		repetitionErreur++;
 		if (repetitionErreur > 1)
 		{
-			cout << "Erreur!! Mauvaise entrée de donnée\n";
+			cout << "Erreur!! Mauvaise entrée de donnée\n" << endl;
 		}
 		getline(cin, choixListerProduit);
 

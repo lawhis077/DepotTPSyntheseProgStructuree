@@ -1,5 +1,6 @@
 #include "Operations.h"
 
+using namespace std;
 void operation_lister_produit(string choixListerProduit, char& entreeChoixListerProduit, int choixListerProduitEnInt, vector<string> categorieProduit,
 	vector<structureProduitTxt>& itemEstValide, vector<structureInventaireTxt>& itemInventaireEstValide)
 {
@@ -7,9 +8,10 @@ void operation_lister_produit(string choixListerProduit, char& entreeChoixLister
 
 	if (entreeChoixListerProduit == CHOIX_VALIDE_LISTER_PRODUIT.at(0))
 	{
-		while (entreeChoixListerProduit != RETOURNER)
-		{
+		
+			//int i = 0; i < itemEstValide.size(); i++
 			// lister_tous_les_produits();
+
 			for (int i = 0; i < itemEstValide.size(); i++)
 			{
 				for (int ii = 0; ii < itemInventaireEstValide.size(); ii++)
@@ -28,7 +30,7 @@ void operation_lister_produit(string choixListerProduit, char& entreeChoixLister
 
 					cout << setfill(' ') << setw(espacementCodeProduit) << codeProduitEnChaine << ":" << itemEstValide.at(i).nomProduit
 						<< setfill(' ') << setw(nombreEspaceProduitEtMontant) << itemEstValide.at(i).prixProduit / DIVISEUR_CONVERSION_ARGENT_ET_POIDS << SIGNE_DOLLAR << setfill(' ')
-						<< setw(ESPACEMENT_MONTANT_ET_INVENTAIRE) << "[ Rupture de stock ]";
+						<< setw(ESPACEMENT_MONTANT_ET_INVENTAIRE) << "[ Rupture de stock ]" << endl << endl << endl;
 				}
 				else
 				{
@@ -40,25 +42,24 @@ void operation_lister_produit(string choixListerProduit, char& entreeChoixLister
 					{
 						cout << setfill(' ') << setw(espacementCodeProduit) << codeProduitEnChaine << ":" << itemEstValide.at(i).nomProduit
 							<< setfill(' ') << setw(nombreEspaceProduitEtMontant) << itemEstValide.at(i).prixProduit / DIVISEUR_CONVERSION_ARGENT_ET_POIDS << SIGNE_DOLLAR << setfill(' ')
-							<< setw(ESPACEMENT_MONTANT_ET_INVENTAIRE) << "[ Inventaire: " << setprecision(PRECISION_KILOGRAMME) << nombreInventaireProduit << "  " << UNITE_POSSIBLE.at(0) << "  ]";
+							<< setw(ESPACEMENT_MONTANT_ET_INVENTAIRE) << "[ Inventaire: " << setprecision(PRECISION_KILOGRAMME) << nombreInventaireProduit << "  " << UNITE_POSSIBLE.at(0) << "  ]" << endl << endl << endl;
 					}
 					else
 					{
 						cout << setfill(' ') << setw(espacementCodeProduit) << codeProduitEnChaine << ":" << itemEstValide.at(i).nomProduit
 							<< setfill(' ') << setw(nombreEspaceProduitEtMontant) << itemEstValide.at(i).prixProduit / DIVISEUR_CONVERSION_ARGENT_ET_POIDS << SIGNE_DOLLAR << setfill(' ')
-							<< setw(ESPACEMENT_MONTANT_ET_INVENTAIRE) << "[ Inventaire: " << nombreInventaireProduit << "    ]";
+							<< setw(ESPACEMENT_MONTANT_ET_INVENTAIRE) << "[ Inventaire: " << nombreInventaireProduit << "    ]" << endl << endl << endl;
 					}
 				}
-
-				// Pause ou i < 10?
+				
 				if (i + 1 % 10 == 0)
-				{
-					system("pause");
+				{ 
 					cout << "Entrez 'R' pour retourner, ou autre pour continuer la liste: ";
 					getline(cin, choixListerProduit);
+					system("pause");
 				}
 			}
-		}
+		
 	}
 	else if (entreeChoixListerProduit == CHOIX_VALIDE_LISTER_PRODUIT.at(1))
 	{
