@@ -9,4 +9,6 @@
 #include "Strings.h"
 #include "Operations.h"
 
-void choix_lister_produit(string& choixListerProduit, char& entreeChoixListerProduit, vector <string> categorieProduit, vector <structureProduitTxt>& itemEstValide, vector <structureInventaireTxt>& itemInventaireEstValide);
+void choix_lister_produit(string& choixListerProduit, char& entreeChoixListerProduit, vector <string> categorieProduit, vector <structureProduitTxt>& itemEstValide, vector <structureInventaireTxt>& itemInventaireEstValide, vector <structureCirculaireTxt>& itemCirculaireEstValide);
+void ecriture_recevoir_marchandise(string codeProduitAAjouterEnString, int quantiteChoisiEnInt, int codeProduitAAjouterEnInt, int i, vector <structureInventaireTxt>& itemInventaireEstValide);
+void verification_recevoir_marchandise(string codeProduitAAjouterEnString, int codeProduitAAjouterEnInt, vector<structureInventaireTxt>& itemInventaireEstValide, bool estExtractable, vector<structureProduitTxt>& itemEstValide);

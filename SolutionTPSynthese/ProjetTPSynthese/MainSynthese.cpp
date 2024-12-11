@@ -11,48 +11,29 @@ using namespace std;
 int main()
 {	
 	setlocale(LC_ALL, "");
+
 	vector <structureProduitTxt> itemEstValide;
 	vector <structureInventaireTxt> itemInventaireEstValide;
-	string choixUtilisateur;
-	char entreeChoixUtilisateur = 'X';
-	ifstream canalLectureFichierProduit;
+	vector <structureCirculaireTxt> itemCirculaireEstValide;
 
-	bool fichierProduitOuvert = ouvrir_fichier_en_lecture(canalLectureFichierProduit, FICHIER_PRODUITS, itemEstValide, itemInventaireEstValide);
-	bool fichierInventaireOuvert = ouvrir_fichier_en_lecture(canalLectureFichierProduit, FICHIER_INVENTAIRE, itemEstValide, itemInventaireEstValide);
-	// menu_principale()
-	while (entreeChoixUtilisateur != 'Q')
+	ifstream canalLectureFichier;
+
+	bool fichierProduitOuvert = ouvrir_fichier_en_lecture(canalLectureFichier, FICHIER_PRODUITS, itemEstValide, itemInventaireEstValide);
+	bool fichierInventaireOuvert = ouvrir_fichier_en_lecture(canalLectureFichier, FICHIER_INVENTAIRE, itemEstValide, itemInventaireEstValide);
+
+	if (fichierProduitOuvert && fichierInventaireOuvert)
 	{
-		afficher_menu();
-
-		getline(cin, choixUtilisateur);
-
-		entreeChoixUtilisateur = convertion_de_string_en_char(choixUtilisateur);
-
-		bool entreeMenuValide = false;
-
-		for (int i = 0; i < CHOIX_VALIDE_MENU_PRINCIPALE.size(); i++)
+		menu_principale(itemEstValide, itemInventaireEstValide, itemCirculaireEstValide);
+	}
+	else
+	{
+		if (!fichierProduitOuvert)
 		{
-			if (entreeChoixUtilisateur == CHOIX_VALIDE_MENU_PRINCIPALE.at(i))
-			{
-				entreeMenuValide = true;
-			}
+			cout << "Erreur de l'ouverture du fichier " << FICHIER_PRODUITS << endl;
 		}
-		while (!entreeMenuValide)
+		if (!fichierInventaireOuvert)
 		{
-			afficher_menu();
-
-			cout << "Entrez un choix valide!!" << endl;
-
-			getline(cin, choixUtilisateur);
-
-			entreeChoixUtilisateur = choixUtilisateur.at(0);
-
-			entreeChoixUtilisateur = toupper(entreeChoixUtilisateur);
-
-		}
-		if (entreeChoixUtilisateur != 'Q')
-		{
-			redirection_sous_menu(entreeChoixUtilisateur, itemEstValide, itemInventaireEstValide);
+			cout << "Erreur de l'ouverture du fichier " << FICHIER_INVENTAIRE << endl;
 		}
 	}
 

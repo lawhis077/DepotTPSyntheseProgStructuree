@@ -19,17 +19,11 @@ bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier,
 		{
 			verifier_fichier_produit(canalLectureFichier, itemProduit, itemProduitEstValide, nomFichier);
 		}
-		
-		
+
 		if (nomFichier == FICHIER_INVENTAIRE)
 		{
 			verifier_fichier_inventaire(canalLectureFichier, itemInventaire, itemInventaireEstValide, nomFichier);
 			
-		}
-
-		if (nomFichier == FICHIER_CIRCULAIRE)
-		{
-			// verifier_fichier_circulaire();
 		}
 
 		canalLectureFichier.close();
@@ -41,7 +35,6 @@ bool ouvrir_fichier_en_lecture(ifstream& canalLectureFichier, string nomFichier,
 		return false;
 
 	}
-
 }
 
 
@@ -79,11 +72,9 @@ char convertion_de_string_en_char(string& choixUtilisateur)
 		{
 			if (choixUtilisateur.size() == 1)
 			{
-				
 				entreeChoixUtilisateur = choixUtilisateur.at(0);
 				entreeChoixUtilisateur = toupper(entreeChoixUtilisateur);
 				estValide = true;
-			
 			}
 		
 		}
@@ -113,13 +104,18 @@ void ajuster_produit(vector <string> itemProduit, structureProduitTxt& produit)
 	produit.uniteProduit = itemProduit.at(4);
 	produit.estTaxable = itemProduit.at(5);
 	extraire_entier(itemProduit.at(6), produit.prixProduit);
-
 }
 
 void ajuster_inventaire(vector<string> itemInventaire, structureInventaireTxt& inventaire)
 {
 	extraire_entier(itemInventaire.at(0), inventaire.codeProduitInventaire);
 	extraire_entier(itemInventaire.at(1), inventaire.nombreProduitInventaire);
+}
+
+void ajuster_circulaire(vector<string> itemCirculaire, structureCirculaireTxt& circulaire)
+{
+	extraire_entier(itemCirculaire.at(0), circulaire.codeProduitCirculaire);
+	extraire_entier(itemCirculaire.at(1), circulaire.pourcentageRabaisCirculaire);
 }
 
 void entree_utilisateur(string& stringChoix, char& charChoix)
@@ -129,6 +125,5 @@ void entree_utilisateur(string& stringChoix, char& charChoix)
 	stringChoix.clear();
 
 	stringChoix.push_back(charChoix);
-
 }
 
